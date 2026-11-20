@@ -19,7 +19,7 @@ npx skills add LofiSu/layered-code-review --skill layered-code-review -a claude-
 
 `--list` prints what the CLI can see and does not install it. The second command is the non-interactive form from `npx skills add --help`. It copies the skill to `.claude/skills/layered-code-review/SKILL.md` in the current project, with `references/` beside it, and writes `skills-lock.json` at that project's root.
 
-These commands read the repository's default branch. Pin a ref, such as `LofiSu/layered-code-review@<ref>`, when you want a branch or tag instead.
+These commands read the default branch. Pin a commit with its full SHA: `npx skills add LofiSu/layered-code-review@<sha> --list`. A branch name that contains a slash is not a ref this CLI resolves.
 
 To install by hand, set `PROJECT` to the project that should load the skill and run this from a clone of this repository:
 

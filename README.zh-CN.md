@@ -19,7 +19,7 @@ npx skills add LofiSu/layered-code-review --skill layered-code-review -a claude-
 
 `--list` 只列出 CLI 能看到的 skill，不会安装。第二条是 `npx skills add --help` 里的非交互安装。它把 skill 复制到当前项目的 `.claude/skills/layered-code-review/SKILL.md`，`references/` 放在旁边，并在该项目根目录写一份 `skills-lock.json`。
 
-这两条命令读取仓库的默认分支。要指定分支或 tag，把来源写成 `LofiSu/layered-code-review@<ref>`。
+这两条命令读取默认分支。要用某一次提交，写它的完整 SHA：`npx skills add LofiSu/layered-code-review@<sha> --list`。名字里带斜杠的分支，这个 CLI 解析不了。
 
 手工安装时，把 `PROJECT` 设为要加载 skill 的项目，在本仓库的克隆里执行：
 
