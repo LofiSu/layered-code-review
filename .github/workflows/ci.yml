@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Validate the skill package
+        run: python3 scripts/validate_skill.py
+
+      - name: Run validator tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Check whitespace
+        run: |
+          empty="$(git hash-object -w -t tree /dev/null)"
+          git diff --check "$empty" HEAD
